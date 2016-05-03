@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!-- This file is part of stock_move_jreport module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full
+copyright notices and license terms. -->
+<tryton>
+    <data>
+        <record model="ir.action.report" id="stock_move_report_action">
+            <field name="name">Stock Move</field>
+            <field name="model">stock.move</field>
+            <field name="report_name">stock.move.jreport</field>
+            <field name="report">stock_move_jreport/move.jrxml</field>
+            <field name="extension">pdf</field>
+        </record>
+        <record model="ir.action.keyword" id="stock_move_report_keyword">
+            <field name="keyword">form_print</field>
+            <field name="model">stock.move,-1</field>
+            <field name="action" ref="stock_move_report_action"/>
+        </record>
+    </data>
+</tryton>
