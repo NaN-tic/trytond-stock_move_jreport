@@ -30,6 +30,9 @@
 	<field name="company-street" class="java.lang.String">
 		<fieldDescription><![CDATA[User/company/party-party/addresses-addresses/street-street]]></fieldDescription>
 	</field>
+	<field name="company-street2" class="java.lang.String">
+		<fieldDescription><![CDATA[User/company/party/addresses/streetbis]]></fieldDescription>
+	</field>
 	<field name="company-zip" class="java.lang.String">
 		<fieldDescription><![CDATA[User/company/party-party/addresses-addresses/zip-zip]]></fieldDescription>
 	</field>
@@ -69,9 +72,6 @@
 	<field name="quantity" class="java.lang.Number">
 		<fieldDescription><![CDATA[quantity]]></fieldDescription>
 	</field>
-	<field name="date" class="java.util.Date">
-		<fieldDescription><![CDATA[date]]></fieldDescription>
-	</field>
 	<field name="lang-code" class="java.lang.String">
 		<fieldDescription><![CDATA[User/language/code]]></fieldDescription>
 	</field>
@@ -92,7 +92,7 @@
 				<textElement>
 					<font size="14" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
-				<textFieldExpression><![CDATA[tr($V{L},"Date") + ": " + " " + new SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date())]]></textFieldExpression>
+				<textFieldExpression><![CDATA[tr($V{L},"Date") + ": " + new SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date())]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="0" y="128" width="40" height="15" backcolor="#DCDCDC" uuid="967abf03-4a39-484e-9dd5-02c50991201c"/>
@@ -179,14 +179,20 @@
 				<textFieldExpression><![CDATA[tr($V{L},"To Location")]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="1" y="23" width="280" height="11" forecolor="#808080" uuid="f3383deb-323d-41e4-83f4-683e96dc2b6c"/>
+				<reportElement x="1" y="25" width="280" height="11" forecolor="#808080" uuid="f3383deb-323d-41e4-83f4-683e96dc2b6c"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{company-zip}+" "+$F{company-city}+" "+$F{company-country}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{company-street} + (
+    $F{company-street2} != null && $F{company-street2} != ""
+    ?
+        " " + $F{company-street2}
+    :
+        ""
+)]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="0" y="65" width="511" height="10" isRemoveLineWhenBlank="true" forecolor="#808080" uuid="8fd90f0c-4a1d-43e8-a5a8-0027e7022e5c"/>
+				<reportElement x="1" y="65" width="509" height="10" isRemoveLineWhenBlank="true" forecolor="#808080" uuid="8fd90f0c-4a1d-43e8-a5a8-0027e7022e5c"/>
 				<textElement textAlignment="Left">
 					<font size="7"/>
 				</textElement>
@@ -197,14 +203,20 @@
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{company-street}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{company-vat_number}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="0" y="36" width="280" height="11" forecolor="#808080" uuid="db3dbc70-e059-4c98-8f07-564b2025eb31"/>
+				<reportElement x="1" y="37" width="280" height="11" forecolor="#808080" uuid="db3dbc70-e059-4c98-8f07-564b2025eb31"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{company-vat_number}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{company-zip} + " " + $F{company-city} + (
+    $F{company-country} =! null && $F{company-country} != ""
+    ?
+        " (" + $F{company-country} + ")"
+    :
+        ""
+)]]></textFieldExpression>
 			</textField>
 			<image>
 				<reportElement x="284" y="0" width="227" height="60" isRemoveLineWhenBlank="true" uuid="0b91956a-9b4f-4a88-b446-f04e2875dfb3">
@@ -220,11 +232,11 @@
 				<textFieldExpression><![CDATA[$F{company-name}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="48" width="280" height="12" forecolor="#808080" uuid="694faeb7-d5d1-4881-a2bb-8307e1067417"/>
+				<reportElement x="1" y="48" width="280" height="12" forecolor="#808080" uuid="694faeb7-d5d1-4881-a2bb-8307e1067417"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA["T. "+ $F{company-phone}+" "+$F{company-email}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Tel.: " + $F{company-phone} + " E-mail: " + $F{company-email}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
 				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="411" y="128" width="52" height="15" backcolor="#DCDCDC" uuid="3c640780-f36a-4581-9943-df7ba3326371"/>
