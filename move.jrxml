@@ -40,7 +40,7 @@
 		<fieldDescription><![CDATA[User/company/party-party/addresses-addresses/city-city]]></fieldDescription>
 	</field>
 	<field name="company-country" class="java.lang.String">
-		<fieldDescription><![CDATA[User/company/party-party/addresses-addresses/country-country/name-name]]></fieldDescription>
+		<fieldDescription><![CDATA[User/company/party/addresses/country/name]]></fieldDescription>
 	</field>
 	<field name="company-phone" class="java.lang.String">
 		<fieldDescription><![CDATA[User/company/party-party/phone-phone]]></fieldDescription>
@@ -211,7 +211,7 @@
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{company-zip} + " " + $F{company-city} + (
-    $F{company-country} =! null && $F{company-country} != ""
+    $F{company-country} != null && $F{company-country} != ""
     ?
         " (" + $F{company-country} + ")"
     :
