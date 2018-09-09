@@ -4,7 +4,6 @@
 from trytond.modules.jasper_reports.jasper import JasperReport
 from trytond.pool import PoolMeta
 
-
 __all__ = ['MoveReport']
 __metaclass__ = PoolMeta
 
