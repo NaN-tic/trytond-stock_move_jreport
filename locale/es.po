@@ -2,35 +2,35 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
-msgctxt "jasper:stock.move.jreport:"
+msgctxt "report:stock.move.jreport:"
 msgid "Code"
 msgstr "Código"
 
-msgctxt "jasper:stock.move.jreport:"
+msgctxt "report:stock.move.jreport:"
 msgid "Date"
 msgstr "Fecha"
 
-msgctxt "jasper:stock.move.jreport:"
+msgctxt "report:stock.move.jreport:"
 msgid "From Location"
 msgstr "Desde ubicación"
 
-msgctxt "jasper:stock.move.jreport:"
+msgctxt "report:stock.move.jreport:"
 msgid "Lot"
 msgstr "Lote"
 
-msgctxt "jasper:stock.move.jreport:"
+msgctxt "report:stock.move.jreport:"
 msgid "Page"
 msgstr "Página"
 
-msgctxt "jasper:stock.move.jreport:"
+msgctxt "report:stock.move.jreport:"
 msgid "Product"
 msgstr "Producto"
 
-msgctxt "jasper:stock.move.jreport:"
+msgctxt "report:stock.move.jreport:"
 msgid "Quantity"
 msgstr "Importe"
 
-msgctxt "jasper:stock.move.jreport:"
+msgctxt "report:stock.move.jreport:"
 msgid "To Location"
 msgstr "A ubicación"
 
