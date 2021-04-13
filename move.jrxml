@@ -33,8 +33,8 @@
 	<field name="company-street2" class="java.lang.String">
 		<fieldDescription><![CDATA[User/company/party/addresses/streetbis]]></fieldDescription>
 	</field>
-	<field name="company-zip" class="java.lang.String">
-		<fieldDescription><![CDATA[User/company/party-party/addresses-addresses/zip-zip]]></fieldDescription>
+	<field name="company-postal_code" class="java.lang.String">
+		<fieldDescription><![CDATA[User/company/party-party/addresses-addresses/postal_code-postal_code]]></fieldDescription>
 	</field>
 	<field name="company-city" class="java.lang.String">
 		<fieldDescription><![CDATA[User/company/party-party/addresses-addresses/city-city]]></fieldDescription>
@@ -210,7 +210,7 @@
 				<textElement>
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{company-zip} + " " + $F{company-city} + (
+				<textFieldExpression><![CDATA[$F{company-postal_code} + " " + $F{company-city} + (
     $F{company-country} != null && $F{company-country} != ""
     ?
         " (" + $F{company-country} + ")"
